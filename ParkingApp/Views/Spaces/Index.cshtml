@@ -1,0 +1,130 @@
+﻿@model IEnumerable<ParkingApp.Models.Space>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+<div class="grid-container1">
+
+<aside id="sidebar1">
+    <div class="sidebar-title1">
+        <div class="sidebar-brand1">
+                <span class="material-icons-outlined1"> <a class="nav-link text-success fw-bold" asp-area="" asp-controller="Home" asp-action="Index"> Home</a> </span>
+        </div>
+        <span class="material-icons-outlined1" onclick="closeSidebar()">close</span>
+    </div>
+
+    <ul class="sidebar-list1 text-success">
+        <li class="sidebar-list-item1">
+        <span class="material-icons-outlined1"> <a class="nav-link text-success fw-bold" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>
+            </li>
+        <li class="sidebar-list-item1">
+                <span class="material-icons-outlined1"> <a class="nav-link  text-success fw-bold" asp-area="" asp-controller="Spaces" asp-action="Create">Add New Space</a> </span>
+        </li>
+        <li class="sidebar-list-item1">
+           <span class="material-icons-outlined1"> <a class="nav-link text-dark" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>
+        </li>
+        <li class="sidebar-list-item1">
+                <span class="material-icons-outlined1"> <a class="nav-link text-dark" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>
+        </li>
+        <li class="sidebar-list-item1">
+           <span class="material-icons-outlined1"> <a class="nav-link text-dark" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>
+        </li>
+        <li class="sidebar-list-item1">
+           <span class="material-icons-outlined1"> <a class="nav-link text-dark" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>
+        </li>
+        <li class="sidebar-list-item1">
+            <span class="material-icons-outlined1"> <a class="nav-link text-dark" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>ss
+        </li>
+    </ul>
+</aside>
+
+<main class="main-container1"> 
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Local_Govt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.No_Slot)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Open_Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Close_Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Daily_Parking)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weekly_Parking)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Monthly_Parking)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parking_Desc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Local_Govt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.No_Slot)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Open_Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Close_Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Daily_Parking)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weekly_Parking)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Monthly_Parking)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parking_Desc)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+</main>
+</div>

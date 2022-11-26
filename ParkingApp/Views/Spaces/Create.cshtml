@@ -1,0 +1,215 @@
+﻿@model ParkingApp.Models.Space
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "_Layout";
+}
+
+<div class="grid-container1">
+
+    <aside id="sidebar1">
+        <div class="sidebar-title1">
+            <div class="sidebar-brand1">
+                <span class="material-icons-outlined1"> <a class="nav-link text-success fw-bold" asp-area="" asp-controller="Home" asp-action="Index"> Home</a> </span>
+            </div>
+            <span class="material-icons-outlined1" onclick="closeSidebar()">close</span>
+        </div>
+
+        <ul class="sidebar-list1 text-success">
+            <li class="sidebar-list-item1">
+                <span class="material-icons-outlined1"> <a class="nav-link text-success fw-bold" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>
+            </li>
+            <li class="sidebar-list-item1">
+                <span class="material-icons-outlined1"> <a class="nav-link  text-success fw-bold" asp-area="" asp-controller="Spaces" asp-action="Create">Add New Space</a> </span>
+            </li>
+            <li class="sidebar-list-item1">
+                <span class="material-icons-outlined1"> <a class="nav-link text-dark" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>
+            </li>
+            <li class="sidebar-list-item1">
+                <span class="material-icons-outlined1"> <a class="nav-link text-dark" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>
+            </li>
+            <li class="sidebar-list-item1">
+                <span class="material-icons-outlined1"> <a class="nav-link text-dark" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>
+            </li>
+            <li class="sidebar-list-item1">
+                <span class="material-icons-outlined1"> <a class="nav-link text-dark" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>
+            </li>
+            <li class="sidebar-list-item1">
+                <span class="material-icons-outlined1"> <a class="nav-link text-dark" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>ss
+            </li>
+        </ul>
+    </aside>
+
+    <main class="rent_main">
+
+
+    <div class="rentEarn-reg1">
+    <div class="rentEarn-reg1-banner">
+        <div class="rentEarn-reg1-banner-1">
+            <h2>Rent Out your space</h2>
+        </div>
+        <div class="rentEarn-reg1-banner-2">
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="rentEarn-top-right">
+    </div>
+
+
+<div class="reg1_body">
+    <div class="reg1_body_banner">
+        <h1> We just need to grab a few details about you, your space and its availability. </h1>
+    </div>
+
+    <div class="reg1_body_main">"
+   <div class="">
+
+            <form asp-action="Create" enctype="multipart/form-data">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="reg_select">
+
+                                <label asp-for="Local_Govt" class="control-label fw-bold"> Select Area</label>
+                                <select asp-for="Local_Govt" class="" >
+                                    <optgroup label="Badagry Division">
+                                        <option value="" disabled selected hidden>Select Area</option>
+                                        <option value="Ajeromi-Ifelodun">Ajeromi-Ifelodun</option>
+                                        <option value="Amuwo-Odofin">Amuwo-Odofin</option>
+                                        <option value="Badagry">Badagry</option>
+                                        <option value="Ojo">Ojo</option>
+                                    </optgroup>
+                                    <optgroup label="Epe Division">
+                                        <option value="Epe">Epe</option>
+                                        <option value="Ibeju-Lekki">Ibeju-Lekki</option>
+                        </optgroup>
+                                        <optgroup label="Ikeja Division">
+                                            <option value="Agege">Agege</option>
+                                            <option value="Alimosho">Alimosho</option>
+                                            <option value="Ifako-Ijaiye">Ifako-Ijaiye</option>
+                                            <option value="Ikeja">Ikeja</option>
+                                            <option value="Kosofe">Kosofe</option>
+                                            <option value="Mushin">Mushin</option>
+                                            <option value="Oshodi-Isolo">Oshodi-Isolo</option>
+                                            <option value="Somolu">Somolu</option>
+                                             </optgroup>
+                                            <optgroup label="Ikorodu Division">
+                                                <option value="Ikorodu">Ikorodu</option>
+                                            </optgroup>
+                                            <optgroup label="Lagos Division">
+                                                <option value="Apapa">Apapa</option>
+                                                <option value="Eti-Osa">Eti-Osa</option>
+                                                <option value="Lagos-Island">Lagos Island</option>
+                                                <option value="Surulere">Surulere</option>
+                                            </optgroup>
+                                 </select>
+                                <span asp-validation-for="Local_Govt" class="text-danger"></span>
+                        </div>
+                <div class="rentEarn_Address pt-4">
+                            <label asp-for="Address" class="control-label fw-bold"></label>
+                            <input asp-for="Address" class="" placeholder="Address" />
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+                @* <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" asp-for="Status" type="" /> @Html.DisplayNameFor(model => model.Status)
+                            </label>
+                        </div>*@
+                <div class="rentEarn_reg1_time pt-4">
+                            <div class=" rentEarn_reg1_time1 text-center">
+                        <label asp-for="Open_Time" class="control-label fw-bold"> Open  AM</label>
+                                <input asp-for="Open_Time" type="time" class="timeam" />
+                                <span asp-validation-for="Open_Time" class="text-danger"></span>
+                            </div>
+                    <div class=" rentEarn_reg1_time1 text-center">
+                        <label asp-for="Close_Time" class="control-label fw-bold">Close PM</label>
+                                <input asp-for="Close_Time" type="time"  class="timepm" />
+                                 <span asp-validation-for="Close_Time" class="text-danger"></span>
+                            </div>
+                            </div>
+
+                <div class="rentEarn_Slot text-center pt-4">
+                                    <label asp-for="No_Slot" class="control-label fw-bold">Number of vehicle slot available</label>
+                                    <input asp-for="No_Slot" class="" />
+                                    <span asp-validation-for="No_Slot" class="text-danger"></span>
+                             </div>
+
+                <div class="rentEarn_Rate1 text-center">
+                <label asp-for="Status" class="control-label"></label>
+                <select asp-for="Status">   <optgroup>
+                <option>Available</option>
+                        <option>Not Available</option>
+            </optgroup> </select>
+                
+               
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+
+                <div class="rentEarn_Rate1 text-center">
+                <label asp-for="UserId" class="control-label"></label>
+                    <select asp-for="UserId" class="form-control " asp-items="ViewBag.UserId" disabled></select>
+            </div>
+
+                <div class="rentEarn_Rate pt-4">
+                                <div class=" rentEarn_Rate1 text-center">
+                        <label asp-for="Daily_Parking" class="control-label fw-bold"> Daily Rate</label>
+                                    <input asp-for="Daily_Parking" class="timeam" />
+                                    <span asp-validation-for="Daily_Parking" class="text-danger"></span>
+                                </div>
+                    <div class=" rentEarn_Rate1 text-center">
+                        <label asp-for="Weekly_Parking" class="control-label fw-bold">Weekly Rate</label>
+                                    <input asp-for="Weekly_Parking" class="timepm" />
+                                    <span asp-validation-for="Weekly_Parking" class="text-danger"></span>
+                                </div>
+                    <div class="rentEarn_Rate1 text-center">
+                        <label asp-for="Monthly_Parking" class="control-label fw-bold">Monthly Rate</label>
+                                     <input asp-for="Monthly_Parking" class="timepm" />
+                                     <span asp-validation-for="Monthly_Parking" class="text-danger"></span>
+                                </div>
+                            </div>
+                     <div class=" rentEarn_Desc pt-4">
+                                <label asp-for="Parking_Desc" class="control-label fw-bold  pb-3">Parking Description</label>
+                    @Html.TextAreaFor(m=> m.Parking_Desc, new {@class = "formControl rentEarn_DescArea"})
+                    @*<textarea asp-for="Parking_Desc" name="comment" rows="4" cols="50" class="formControl rentEarn_DescArea" id="Parking_Desc" name="Parking_Desc"> </textarea>*@
+                                    <span asp-validation-for="Parking_Desc" class="text-danger"></span>
+                             </div>
+
+                @*  <div class="form-group reg1_body2_left pt-4" style="text-align:center;">
+                             <label class="control-label fw-bold  pb-3"> Add an entrance image of the parking lot</label>
+                                <br>
+                                <label asp-for="ImageFile"  class="drop-container">
+                                    <span class="drop-title">Drop files here</span>
+                                    or
+                                    <input asp-for="ImageFile" type="file" id="location_image" accept="image/*" required>
+                                </label>
+                    <span asp-validation-for="ImageFile" class="text-danger"></span>
+                            </div> *@
+
+                            <hr class="mt-5" style="margin:auto; border-color:black;" width="80%">
+            <div class="reg1_bottom">
+                <div class="reg-back">
+                    <a asp-controller="Spaces" asp-action="Index" class="reg-back1 fw-bold"> <span class="fw-bold"> &#8592;</span>   Back to List</a>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn reg1_btn" />
+                </div>
+            </div>
+
+        </form>
+        </div>
+</div>
+</div>
+    </main>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

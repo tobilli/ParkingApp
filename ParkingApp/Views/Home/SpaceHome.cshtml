@@ -1,0 +1,182 @@
+﻿@{
+   ViewData["Title"] = "HomeSpace";
+    Layout = "_Layout";
+}
+
+
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ParkingApp</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Role" asp-action="Index">Role</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SpaceHome">Space</a>
+                    </li>
+                </ul>
+                <partial name="_LoginPartial" />
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<div class="rentEarn-top">
+    <div class="rentEarn-top-left" id="rentEarn-top-left">
+        <div class="rentEarn-top-left-border">
+            <h3 class="text-center fw-bold">Rent & Earn From Your Empty Parking Space</h3>
+            <br>
+            <h5 class="text-center">Earn while you <span style="color:red;">rent</span> your vacant parking space at your residence / location</h5>
+            <br>
+            <h4 class="text-center"> Register your empty space ?</h4>
+            <div>
+            </div>
+
+            <div class="">
+                <a class="earn-space-btn text-center btn" asp-controller="Spaces" asp-action="Create">Add New Space</a>
+                @*<a id="btn_id" asp-action="CreateSpace">  Add your space </a>*@
+            </div>
+            <div class="">
+                <a class="earn-space-btn text-center btn" asp-area="" asp-controller="spacetests" asp-action="Details">Details</a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="rentEarn-top-right">
+    </div>
+</div>
+
+
+<div class="rentEarn-mid">
+    <div class="rentEarn-mid-heading">
+        <h1>An Easy Way to Earn</h1>
+    </div>s
+    <div class="rentEarn-mid-mid">
+        <div class="rentEarn-mid-mid-card">
+
+            <img src="~/img/avatarprofile.png" alt="Earn">
+            <h4>Earn thousands</h4>
+            <p>We have a network of space owners earning thousand from their parking lot. Join them!</p>
+        </div>
+        <div class="rentEarn-mid-mid-card">
+            <img src="~/img/avatarprofile.png" alt="Drivers">
+            <h4>Customer Reach</h4>
+            <p>We reach more drivers than anyone else; More bookings, More cash in your pocket.</p>
+        </div>
+        <div class="rentEarn-mid-mid-card">
+            <img src="~/img/avatarprofile.png" alt="Set and Earn">
+            <h4>Set and Earn</h4>
+            <p>Add your space for free in 2-5minutes. choose when its avalaible, then sit back as your earnings roll in.</p>
+        </div>
+        <div class="rentEarn-mid-mid-card">
+            <img src="~/img/avatarprofile.png" alt="Peace of Mind">
+            <h4>Peace of Mind</h4>
+            <p>Our Drivers are registered and verified. You'll know who's using your space at all times.</p>
+        </div>
+    </div>
+    <div class="rentEarn-mid-btn" style="display:flex;">
+        <button class="earn-space-btn" value="Submit"> <a href="#rentEarn-top-left">Start earning today</a></button>
+    </div>
+</div>
+
+
+<div class="rentEarn-mid-btm">
+    <div class="rentEarn-mid-btm-heading">
+        <h1>How It Works</h1>
+    </div>
+    <div class="rentEarn-mid-btm-mid">
+        <div class="rentEarn-mid-btm-card">
+            <img src="img/avatarprofile.png" alt="Earn">
+            <h3>Add your space</h3>
+            <hr>
+            <p>Driveway, parking garage or space- get registed in 2 to 5 minutes.</p>
+        </div>
+        <div class="rentEarn-mid-btm-card">
+            <img src="img/avatarprofile.png" alt="Drivers">
+            <h3>Your space is live</h3>
+            <hr>
+            <p>We manage everything for you, update you when you get booked.</p>
+        </div>
+        <div class="rentEarn-mid-btm-card">
+            <img src="img/avatarprofile.png" alt="Set and Earn">
+            <h3>Relax while you earn</h3>
+            <hr>
+            <p>Relax and work out what to spend your earnings on.</p>
+        </div>
+    </div>
+    <div class="rentEarn-mid-btm-btn" style="display:flex;">
+        <button class="earn-space-btn" value="Submit"> <a href="#rentEarn-top-left">Start earning today</a></button>
+    </div>
+</div>
+
+
+   <footer class="site-footer">
+        <div class="container-footer">
+            <div class="row-footer">
+                <div class="row-footer-left">
+                    <h6>About</h6>
+                    <p class="text-justify">parking Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit quibusdam consequatur corporis nulla aliquid debitis, molestiae animi sed maxime eius nemo velit excepturi mollitia unde delectus, quos eos minima aliquam voluptatibus inventore. Non, cum, sint doloribus consectetur quisquam nihil ad ullam enim in reprehenderit corrupti ducimus quae nulla consequatur officia culpa obcaecati. Fuga quasi laboriosam cupiditate earum suscipit alias delectus.</p>
+                </div>
+
+
+                <div class="row-footer-mid">
+                    <h6>Categories</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">EARN</a></li>
+                        <li><a href="#">Sign Up</a></li>
+                        <li><a href="#">Car Parking</a></li>
+                        <!-- <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li> -->
+                    </ul>
+                </div>
+
+                <div class="row-footer-right">
+                    <h6>Quick Links</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Contribute</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row-footer2">
+                <div class="">
+                    <p class="copyright-text">
+                        Copyright &copy; 2022 All Rights Reserved by
+                        <a href="#">Parking</a>.
+                    </p>
+                </div>
+
+                <div class="">
+                    <ul class="social-icons">
+                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <
+    </footer>

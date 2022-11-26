@@ -1,0 +1,378 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ParkingApp</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Spacee">Space</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Role" asp-action="Index">Role</a>
+                    </li>
+                    @* <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SpaceHome">Space</a>
+                    </li>*@
+                </ul>
+                <partial name="_LoginPartial" />
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<div class="home-top">
+    <div class="home-top-left">
+        <h1> We Make Parking <br><span style="font-size: 1.8em;">Effortless</span> </h1>
+    </div>
+    <div class="home-top-right">
+        <div class="home-top-right-border">
+            <div class="inner_right">
+                <h1> Drivers</h1>
+                <p>Book a Parking Space at desired location</p>
+                @*<br>*@
+                <button type="button"> <a href="#home-booking">PARK</a> </button>
+            </div>
+
+            <div class="inner_right1">
+                <h2>Parking Operator</h2>
+                @*   <br>*@
+                <p>Have a Parking Lot? </p>
+                @*  <br>*@
+                <button type="button"> <a asp-controller="spacetests" asp-action="Index"> EARN </a> </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="home-book" id="home-booking">
+
+    <div class="home-book-left">
+        <div class="home-book-left-i">
+            <form method="get" asp-controller="spacetests" asp-action="Searchfor">
+                <p>
+                    @*<input type="search" placeholder="Enter Area Name" value="@ViewData[" GetAreaDetails"]" name="Areasearch" />*@
+
+                    <input type="search" placeholder="Enter Area Name" value="@ViewData[" GetAreaDetails"]" name="Areasearch" />
+                    <input type="submit" value="Search" class="btn btn-success" />
+                    
+                </p>
+            </form>
+            @*<form method="get" asp-action="Searchfor" class="daily">
+                <label class="home-book-left-hr">  <h3>HOURLY / DAILY </h3> </label>
+                <br />
+
+            </form>*@
+
+            <div >
+                <span id="hr_daily" onclick="changedaily()">
+                   
+                </span>
+                @*<p style="padding-inline: 7%;"></p>
+                <span id="s_monthly" onclick="changemonthly()">
+                    <h3>MONTHLY</h3>
+                </span>*@
+            </div>
+            <div id="daily" class="daily">
+                <form method="get" asp-action="Searchfor" id="daily" class="daily">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="home-book-left-hr-b">
+                    
+                    <label> <h4> Book a space</h4></label>
+                        <select type="Search" id="show_location" value="ViewData[" GetAreaDetails"]" name="Areasearch">
+                            <optgroup label="Badagry Division">
+                                <option value="" disabled selected hidden>Select Area</option>
+                                <option value="Ajeromi-Ifelodun">Ajeromi-Ifelodun</option>
+                                <option value="Amuwo-Odofin">Amuwo-Odofin</option>
+                                <option value="Badagry">Badagry</option>
+                                <option value="Ojo">Ojo</option>
+                            </optgroup>
+                            <optgroup label="Epe Division">
+                                <option value="Epe">Epe</option>
+                                <option value="Ibeju-Lekki">Ibeju-Lekki</option>
+                            </optgroup>
+                            <optgroup label="Ikeja Division">
+                                <option value="Agege">Agege</option>
+                                <option value="Alimosho">Alimosho</option>
+                                <option value="Ifako-Ijaiye">Ifako-Ijaiye</option>
+                                <option value="Ikeja">Ikeja</option>
+                                <option value="Kosofe">Kosofe</option>
+                                <option value="Mushin">Mushin</option>
+                                <option value="Oshodi-Isolo">Oshodi-Isolo</option>
+                                <option value="Somolu">Somolu</option>
+                            </optgroup>
+                            <optgroup label="Ikorodu Division">
+                                <option value="Ikorodu">Ikorodu</option>
+                            </optgroup>
+                            <optgroup label="Lagos Division">
+                                <option value="Apapa">Apapa</option>
+                                <option value="Eti-Osa">Eti-Osa</option>
+                                <option value="Lagos-Island">Lagos Island</option>
+                                <option value="Surulere">Surulere</option>
+                            </optgroup>
+                    </select>
+                </div>
+              @*  <div class="home-book-left-hr-b2">
+                    <div>
+                        <h4>Parking from</h4>
+                        <input type="date" name="date" placeholder="Select a date & time" id="park_from" style="width: 100%;">
+                    </div>
+                    <hr>
+                    <div>
+                        <h4>Parking until</h4>
+                        <input type="date" name="datetime" id="park_until" placeholder="Select a date & time" style="width: 100%;">
+                    </div>
+                </div>*@
+                    <div class="home-book-button">
+                        <button class="button" type="button" id="" value="Search">Show parking spaces</button>
+                    </div>
+              @*  <div class="home-book-button">
+                <input class="button btn btn-success" type="button" value="Search" placeholder="Search">                    
+            </div>*@
+                </form>
+            </div>
+           
+            
+
+        </div>
+
+    </div>
+    <div class="home-book-right">
+        <video id="background-video" autoplay loop muted>
+            <source src="img/parkinglotzoom.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+
+
+
+
+<div class="home-2">
+    <div class="home-2left">
+        <h1>The Smarter Way to Park</h1>
+        <p>Parking puts power to park in your hands. Whether you're looking for a spot now or reserving a spot for later. </p>
+        <h3>How It Works </h3>
+
+    </div>
+    <div class="home-2right">
+        <div class="home-2right-card">
+            <span class="home-2right-card-h1">
+                <h1>1</h1>
+            </span>
+
+            <h3>Enter Location</h3>
+            <img src="img/map4.png" alt="location">
+        </div>
+        <div class="home-2right-card">
+            <span class="home-2right-card-h1">
+                <h1>2</h1>
+            </span>
+            <h3>Set Your Duration</h3>
+            <img src="img/duration.png" alt="Duration">
+        </div>
+        <div class="home-2right-card">
+            <span class="home-2right-card-h1">
+                <h1>3</h1>
+            </span>
+            <h3>Select Your Vehicle</h3>
+            <img src="img/vehicle.png" alt="Vehicle">
+        </div>
+        <div class="home-2right-card">
+            <span class="home-2right-card-h1">
+                <h1>4</h1>
+            </span>
+            <h3>Pay & Go</h3>
+            <img src="img/pay_go.png" alt="Start Parking">
+        </div>
+
+    </div>
+</div>
+
+<div>
+    <div class="testimonial-box-container ">
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+
+        <div class="testimonnial1-box mySlides fade1">
+            <div class="box-top1">
+                <div class="profile">
+                    <div class="profile-img">
+                        <img src="img/avatarprofile.png" alt="profile picture">
+                    </div>
+                    <div class="name-user">
+                        <Strong>Compiler</Strong>
+                        <span>username</span>
+                    </div>
+                </div>
+                <div class="reviews">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </div>
+            <div class="client-comment">
+                <p>
+                    consectetur  Lorem ipsum dolor sit amet  adipisicing elit.
+                    A neque asperiores velit debitis accusantium voluptas deleniti,
+                    atque suscipit, assumenda blanditiis consequatur magnam harum
+                    itaque voluptate  facilis adipisci sintprovident facere.
+                </p>
+            </div>
+        </div>
+        <div class="testimonnial1-box mySlides fade1">
+            <div class="box-top1">
+                <div class="profile">
+                    <div class="profile-img">
+                        <img src="img/avatarprofile.png" alt="profile picture">
+                    </div>
+                    <div class="name-user">
+                        <Strong>Anchor</Strong>
+                        <span>username</span>
+                    </div>
+                </div>
+                <div class="reviews">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </div>
+            <div class="client-comment">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A neque asperiores velit debitis accusantium voluptas deleniti, atque suscipit, assumenda blanditiis consequatur magnam harum itaque voluptate provident facere facilis adipisci sint.</p>
+            </div>
+        </div>
+        <div class="testimonnial1-box mySlides fade1">
+            <div class="box-top1">
+                <div class="profile">
+                    <div class="profile-img">
+                        <img src="img/avatarprofile.png" alt="profile picture">
+                    </div>
+                    <div class="name-user">
+                        <Strong>Tobilli</Strong>
+                        <span>username</span>
+                    </div>
+                </div>
+                <div class="reviews">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </div>
+            <div class="client-comment">
+                <p>
+                    dolor Lorem ipsum sit amet consectetur adipisicing elit.
+                    A neque asperiores velit debitis accusantium voluptas deleniti,
+                    atque suscipit, assumenda blanditiis consequatur magnam harum itaque
+                    voluptate provident facere facilis  sint adipisci.
+                </p>
+            </div>
+        </div>
+        <div class="testimonnial1-box mySlides fade1">
+            <div class="box-top1">
+                <div class="profile">
+                    <div class="profile-img">
+                        <img src="img/avatarprofile.png" alt="profile picture">
+                    </div>
+                    <div class="name-user">
+                        <Strong>Jaiye</Strong>
+                        <span>username</span>
+                    </div>
+                </div>
+                <div class="reviews">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </div>
+            <div class="client-comment">
+                <p>
+                    ipsum dolor sit amet consectetur adipisicing elit. A neque asperiores velit debitis accusantium voluptas deleniti, atque suscipit,
+                    assumenda blanditiis consequatur magnam harum itaque voluptate provident facere facilis adipisci .
+                </p>
+            </div>
+        </div>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <footer class="site-footer">
+        <div class="container-footer">
+            <div class="row-footer">
+                <div class="row-footer-left">
+                    <h6>About</h6>
+                    <p class="text-justify">parking Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit quibusdam consequatur corporis nulla aliquid debitis, molestiae animi sed maxime eius nemo velit excepturi mollitia unde delectus, quos eos minima aliquam voluptatibus inventore. Non, cum, sint doloribus consectetur quisquam nihil ad ullam enim in reprehenderit corrupti ducimus quae nulla consequatur officia culpa obcaecati. Fuga quasi laboriosam cupiditate earum suscipit alias delectus.</p>
+                </div>
+
+
+                <div class="row-footer-mid">
+                    <h6>Categories</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">EARN</a></li>
+                        <li><a href="#">Sign Up</a></li>
+                        <li><a href="#">Car Parking</a></li>
+                        <!-- <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li> -->
+                    </ul>
+                </div>
+
+                <div class="row-footer-right">
+                    <h6>Quick Links</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Contribute</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row-footer2">
+                <div class="">
+                    <p class="copyright-text">
+                        Copyright &copy; 2022 All Rights Reserved by
+                        <a href="#">Parking</a>.
+                    </p>
+                </div>
+
+                <div class="">
+                    <ul class="social-icons">
+                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <
+    </footer>
