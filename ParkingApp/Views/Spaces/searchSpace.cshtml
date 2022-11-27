@@ -9,8 +9,8 @@
 
 <form asp-action="searchSpace" method="get">
 <div>
-    <label for="SearchString" asp-for="Local_Govt"> Search For Parking Space</label>
-    <input type="text" asp-for="Local_Govt" class="form-control" name="SearchString" value="@ViewData["CurrentAera"]" />
+    <label for="SearchString"@* asp-for="Local_Govt"*@ > Search For Parking Space</label>
+    <input type="text" @*asp-for="Local_Gov"*@ class="form-control" name="SearchString" value="@ViewData["CurrentAera"]" />
     <input type="submit" value="Search" class="btn btn-success" />
 </div>
 </form>

@@ -5,80 +5,149 @@
     Layout = "_Layout";
 }
 
+
+<div class="grid-container1">
+
+    <aside id="sidebar1">
+        <div class="sidebar-title1">
+            <div class="sidebar-brand1">
+                <span class="material-icons-outlined1"> <a class="nav-link text-success fw-bold" asp-area="" asp-controller="Home" asp-action="Index"> Home</a> </span>
+            </div>
+            <span class="material-icons-outlined1" onclick="closeSidebar()">close</span>
+        </div>
+
+        <ul class="sidebar-list1 text-success">
+            <li class="sidebar-list-item1">
+                <span class="material-icons-outlined1"> <a class="nav-link text-success fw-bold" asp-area="" asp-controller="Spaces" asp-action="Index">List of SpacesS</a> </span>
+            </li>
+            <li class="sidebar-list-item1">
+                <span class="material-icons-outlined1"> <a class="nav-link  text-success fw-bold" asp-area="" asp-controller="Spaces" asp-action="Create">Add New Space</a> </span>
+            </li>
+            <li class="sidebar-list-item1">
+                <span class="material-icons-outlined1"> <a class="nav-link text-dark" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>
+            </li>
+            <li class="sidebar-list-item1">
+                <span class="material-icons-outlined1"> <a class="nav-link text-dark" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>
+            </li>
+            <li class="sidebar-list-item1">
+                <span class="material-icons-outlined1"> <a class="nav-link text-dark" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>
+            </li>
+            <li class="sidebar-list-item1">
+                <span class="material-icons-outlined1"> <a class="nav-link text-dark" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>
+            </li>
+            <li class="sidebar-list-item1">
+                <span class="material-icons-outlined1"> <a class="nav-link text-dark" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>ss
+            </li>
+        </ul>
+    </aside>
+
+    <main class="rent_main">
+
+
+    <div class="rentEarn-reg1">
+    <div class="rentEarn-reg1-banner">
+        <div class="rentEarn-reg1-banner-1">
+            <h2>Rent Out your space</h2>
+        </div>
+        <div class="rentEarn-reg1-banner-2">
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="rentEarn-top-right">
+    </div>
+
+
+<div class="reg1_body">
+    <div class="reg1_body_banner">
+        <h1> Edit your  space details and its availability. </h1>
+    </div>
+
+    <div class="reg1_body_main">"
+   <div class="">     <div class="row">
+                        <div class="col-md-4">
+                            <form asp-action="Edit">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <input type="hidden" asp-for="id" />
+                                <div class="form-group">
+                                    <label asp-for="Address" class="control-label"></label>
+                                    <input asp-for="Address" class="form-control" />
+                                    <span asp-validation-for="Address" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Local_Govt" class="control-label"></label>
+                                    <input asp-for="Local_Govt" class="form-control" />
+                                    <span asp-validation-for="Local_Govt" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Status" class="control-label"></label>
+                                    <input asp-for="Status" class="form-control" />
+                                    <span asp-validation-for="Status" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="No_Slot" class="control-label"></label>
+                                    <input asp-for="No_Slot" class="form-control" />
+                                    <span asp-validation-for="No_Slot" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Open_Time" class="control-label"></label>
+                                    <input asp-for="Open_Time" class="form-control" />
+                                    <span asp-validation-for="Open_Time" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Close_Time" class="control-label"></label>
+                                    <input asp-for="Close_Time" class="form-control" />
+                                    <span asp-validation-for="Close_Time" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="UserId" class="control-label"></label>
+                                    <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                                    <span asp-validation-for="UserId" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Daily_Parking" class="control-label"></label>
+                                    <input asp-for="Daily_Parking" class="form-control" />
+                                    <span asp-validation-for="Daily_Parking" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Weekly_Parking" class="control-label"></label>
+                                    <input asp-for="Weekly_Parking" class="form-control" />
+                                    <span asp-validation-for="Weekly_Parking" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Monthly_Parking" class="control-label"></label>
+                                    <input asp-for="Monthly_Parking" class="form-control" />
+                                    <span asp-validation-for="Monthly_Parking" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Parking_Desc" class="control-label"></label>
+                                    <input asp-for="Parking_Desc" class="form-control" />
+                                    <span asp-validation-for="Parking_Desc" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Save" class="btn btn-primary" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a class="btn btn-success" asp-action="Index">Back to List</a>
+                    </div>
+
+        </div>
+</div>
+</div>
+    </main>
+</div>
 <h1>Edit</h1>
 
 <h4>Space</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="id" />
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Local_Govt" class="control-label"></label>
-                <input asp-for="Local_Govt" class="form-control" />
-                <span asp-validation-for="Local_Govt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="No_Slot" class="control-label"></label>
-                <input asp-for="No_Slot" class="form-control" />
-                <span asp-validation-for="No_Slot" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Open_Time" class="control-label"></label>
-                <input asp-for="Open_Time" class="form-control" />
-                <span asp-validation-for="Open_Time" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Close_Time" class="control-label"></label>
-                <input asp-for="Close_Time" class="form-control" />
-                <span asp-validation-for="Close_Time" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
-                <span asp-validation-for="UserId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Daily_Parking" class="control-label"></label>
-                <input asp-for="Daily_Parking" class="form-control" />
-                <span asp-validation-for="Daily_Parking" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Weekly_Parking" class="control-label"></label>
-                <input asp-for="Weekly_Parking" class="form-control" />
-                <span asp-validation-for="Weekly_Parking" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Monthly_Parking" class="control-label"></label>
-                <input asp-for="Monthly_Parking" class="form-control" />
-                <span asp-validation-for="Monthly_Parking" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Parking_Desc" class="control-label"></label>
-                <input asp-for="Parking_Desc" class="form-control" />
-                <span asp-validation-for="Parking_Desc" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
