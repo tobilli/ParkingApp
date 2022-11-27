@@ -1,5 +1,6 @@
-﻿@model IEnumerable<ParkingApp.Models.Space>
-
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<ParkingApp.Models.Space>
+@*@inject SignInManager<ApplicationUser> SignInManager*@
 @{
     ViewData["Title"] = "Index";
     Layout = "_Layout";
@@ -63,7 +64,7 @@
                 @Html.DisplayNameFor(model => model.Close_Time)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.User)
+                @Html.DisplayNameFor(model => model.UserId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Daily_Parking)
@@ -102,7 +103,7 @@
                 @Html.DisplayFor(modelItem => item.Close_Time)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.Id)
+                @Html.DisplayFor(modelItem => item.UserId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Daily_Parking)

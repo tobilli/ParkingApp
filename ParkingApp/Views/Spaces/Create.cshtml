@@ -17,7 +17,7 @@
 
         <ul class="sidebar-list1 text-success">
             <li class="sidebar-list-item1">
-                <span class="material-icons-outlined1"> <a class="nav-link text-success fw-bold" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>
+                <span class="material-icons-outlined1"> <a class="nav-link text-success fw-bold" asp-area="" asp-controller="Spaces" asp-action="Index">List of SpacesS</a> </span>
             </li>
             <li class="sidebar-list-item1">
                 <span class="material-icons-outlined1"> <a class="nav-link  text-success fw-bold" asp-area="" asp-controller="Spaces" asp-action="Create">Add New Space</a> </span>
@@ -144,15 +144,13 @@
                 <select asp-for="Status">   <optgroup>
                 <option>Available</option>
                         <option>Not Available</option>
-            </optgroup> </select>
-                
-               
+            </optgroup> </select>                       
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
 
                 <div class="rentEarn_Rate1 text-center">
                 <label asp-for="UserId" class="control-label"></label>
-                    <select asp-for="UserId" class="form-control " asp-items="ViewBag.UserId" disabled></select>
+                    <input asp-for="UserId" class="form-control" asp-items="@User.Identity.Name"/>
             </div>
 
                 <div class="rentEarn_Rate pt-4">
@@ -175,7 +173,7 @@
                      <div class=" rentEarn_Desc pt-4">
                                 <label asp-for="Parking_Desc" class="control-label fw-bold  pb-3">Parking Description</label>
                     @Html.TextAreaFor(m=> m.Parking_Desc, new {@class = "formControl rentEarn_DescArea"})
-                    @*<textarea asp-for="Parking_Desc" name="comment" rows="4" cols="50" class="formControl rentEarn_DescArea" id="Parking_Desc" name="Parking_Desc"> </textarea>*@
+                    @*<textarea asp-for="Parking_Desc" name="comment" rows="4" cols="50" class="formControl rentEarn_DescArea" id="Parking_Desc" name="Parking_Desc"> </textarea>
                                     <span asp-validation-for="Parking_Desc" class="text-danger"></span>
                              </div>
 

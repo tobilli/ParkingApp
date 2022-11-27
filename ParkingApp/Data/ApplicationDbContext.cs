@@ -10,5 +10,6 @@ namespace ParkingApp.Data
             : base(options)
         { }
         public DbSet<ParkingApp.Models.Space> spaces { get; set; }
+        public DbSet<ParkingApp.Models.Booking> bookings { get; set; }
     }
 }

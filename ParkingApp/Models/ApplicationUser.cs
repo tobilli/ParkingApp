@@ -10,5 +10,6 @@ namespace ParkingApp.Models
         [MaxLength(25)]
         [MinLength(3)]
         public string? FullName { get; set; }
+        public IEnumerable<Space> Spaces { get; set; }  
     }
 }

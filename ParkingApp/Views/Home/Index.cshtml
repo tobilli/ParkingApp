@@ -16,17 +16,13 @@
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Rent & Earn </a>
                     </li>
-                    <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Spacee">Space</a>
-                    </li>
-                    <li class="nav-item">
+                   
+                    @*<li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Role" asp-action="Index">Role</a>
-                    </li>
-                    @* <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SpaceHome">Space</a>
                     </li>*@
+                    
                 </ul>
                 <partial name="_LoginPartial" />
             </div>
@@ -67,34 +63,34 @@
                 <p>
                     @*<input type="search" placeholder="Enter Area Name" value="@ViewData[" GetAreaDetails"]" name="Areasearch" />*@
 
-                    <input type="search" placeholder="Enter Area Name" value="@ViewData[" GetAreaDetails"]" name="Areasearch" />
-                    <input type="submit" value="Search" class="btn btn-success" />
-                    
+                    @*<input type="search" placeholder="Enter Area Name" value="@ViewData[" GetAreaDetails"]" name="Areasearch" />
+                    <input type="submit" value="Search" class="btn btn-success" />*@
+
                 </p>
             </form>
             @*<form method="get" asp-action="Searchfor" class="daily">
-                <label class="home-book-left-hr">  <h3>HOURLY / DAILY </h3> </label>
-                <br />
+            <label class="home-book-left-hr">  <h3>HOURLY / DAILY </h3> </label>
+            <br />
 
             </form>*@
 
-            <div >
+            <div>
                 <span id="hr_daily" onclick="changedaily()">
-                   
+
                 </span>
                 @*<p style="padding-inline: 7%;"></p>
                 <span id="s_monthly" onclick="changemonthly()">
-                    <h3>MONTHLY</h3>
+                <h3>MONTHLY</h3>
                 </span>*@
             </div>
             <div id="daily" class="daily">
                 <form method="get" asp-action="Searchfor" id="daily" class="daily">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                <div class="home-book-left-hr-b">
-                    
-                    <label> <h4> Book a space</h4></label>
-                        <select type="Search" id="show_location" value="ViewData[" GetAreaDetails"]" name="Areasearch">
+                    <div class="home-book-left-hr-b">
+
+                        <label> <h4> Book a space</h4></label>
+                        @*<select type="Search" id="show_location" value="ViewData[" GetAreaDetails"]" name="Areasearch">
                             <optgroup label="Badagry Division">
                                 <option value="" disabled selected hidden>Select Area</option>
                                 <option value="Ajeromi-Ifelodun">Ajeromi-Ifelodun</option>
@@ -125,29 +121,29 @@
                                 <option value="Lagos-Island">Lagos Island</option>
                                 <option value="Surulere">Surulere</option>
                             </optgroup>
-                    </select>
-                </div>
-              @*  <div class="home-book-left-hr-b2">
+                        </select>*@
+                    </div>
+                    @*  <div class="home-book-left-hr-b2">
                     <div>
-                        <h4>Parking from</h4>
-                        <input type="date" name="date" placeholder="Select a date & time" id="park_from" style="width: 100%;">
+                    <h4>Parking from</h4>
+                    <input type="date" name="date" placeholder="Select a date & time" id="park_from" style="width: 100%;">
                     </div>
                     <hr>
                     <div>
-                        <h4>Parking until</h4>
-                        <input type="date" name="datetime" id="park_until" placeholder="Select a date & time" style="width: 100%;">
+                    <h4>Parking until</h4>
+                    <input type="date" name="datetime" id="park_until" placeholder="Select a date & time" style="width: 100%;">
                     </div>
-                </div>*@
+                    </div>*@
                     <div class="home-book-button">
-                        <button class="button" type="button" id="" value="Search">Show parking spaces</button>
+                        <a class="button btn btn-success" id="" value="Search" asp-controller="Bookings" asp-action="search">Search parking spaces</a>
                     </div>
-              @*  <div class="home-book-button">
-                <input class="button btn btn-success" type="button" value="Search" placeholder="Search">                    
-            </div>*@
+                    @*  <div class="home-book-button">
+                    <input class="button btn btn-success" type="button" value="Search" placeholder="Search">
+                    </div>*@
                 </form>
             </div>
-           
-            
+
+
 
         </div>
 
@@ -312,6 +308,7 @@
         <a class="next" onclick="plusSlides(1)">❯</a>
     </div>
 </div>
+
 
 
 

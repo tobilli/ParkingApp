@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace ParkingApp.Models
@@ -28,12 +29,12 @@ namespace ParkingApp.Models
         [Required]
         public DateTime Close_Time { get; set; }
 
-       /* [ForeignKey("ApplicationUser")]
-        public Guid UserId { get; set; }*/
+        /* [ForeignKey("ApplicationUser")]
+         public Guid UserId { get; set; }*/
 
-        public string? UserId { get; set; }
+        public string UserId { get; set; }
         [ForeignKey("UserId")]
-        public virtual ApplicationUser User { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
 
         [Column(TypeName = "Money")]
