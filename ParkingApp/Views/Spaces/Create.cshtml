@@ -149,8 +149,8 @@
             </div>
 
                 <div class="rentEarn_Rate1 text-center">
-                <label asp-for="UserId" class="control-label"></label>
-                    <input asp-for="UserId" class="form-control" asp-items="@User.Identity.Name"/>
+                @*<label asp-for="UserId" class="control-label"></label>*@
+                    <input asp-for="UserId" class="form-control" value="@User.Identity?.Name" hidden/> 
             </div>
 
                 <div class="rentEarn_Rate pt-4">

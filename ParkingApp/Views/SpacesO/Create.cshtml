@@ -1,0 +1,83 @@
+﻿@model ParkingApp.Models.Space
+
+@{
+    ViewData["Title"] = "Create";
+   // Layout = "~/Views/Home/Index.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Space</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Local_Govt" class="control-label"></label>
+                <input asp-for="Local_Govt" class="form-control" />
+                <span asp-validation-for="Local_Govt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="No_Slot" class="control-label"></label>
+                <input asp-for="No_Slot" class="form-control" />
+                <span asp-validation-for="No_Slot" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Open_Time" class="control-label"></label>
+                <input asp-for="Open_Time" class="form-control" />
+                <span asp-validation-for="Open_Time" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Close_Time" class="control-label"></label>
+                <input asp-for="Close_Time" class="form-control" />
+                <span asp-validation-for="Close_Time" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <select asp-for="UserId" class ="form-control" asp-items="@ViewBag.UserId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Daily_Parking" class="control-label"></label>
+                <input asp-for="Daily_Parking" class="form-control" />
+                <span asp-validation-for="Daily_Parking" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weekly_Parking" class="control-label"></label>
+                <input asp-for="Weekly_Parking" class="form-control" />
+                <span asp-validation-for="Weekly_Parking" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Monthly_Parking" class="control-label"></label>
+                <input asp-for="Monthly_Parking" class="form-control" />
+                <span asp-validation-for="Monthly_Parking" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parking_Desc" class="control-label"></label>
+                <input asp-for="Parking_Desc" class="form-control" />
+                <span asp-validation-for="Parking_Desc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -2,27 +2,33 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ParkingApp.Data;
 using ParkingApp.Models;
 
+
 namespace ParkingApp.Controllers
 {
     public class SpacesController : Controller
     {
         private readonly ApplicationDbContext _context;
-        public SpacesController(ApplicationDbContext context)
+        private readonly UserManager<ApplicationUser> userManager;
+        public SpacesController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            this.userManager = userManager;
         }
 
         // GET: Spaces
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.spaces.Include(s => s.UserId);
+
             return View(await applicationDbContext.ToListAsync());
+            /* return View();*/
         }
 
         // GET: Spaces/Details/5
@@ -58,16 +64,22 @@ namespace ParkingApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id,Address,Local_Govt,Status,No_Slot,UserId,Open_Time,Close_Time,Daily_Parking,Weekly_Parking,Monthly_Parking,Parking_Desc")] Space space)
         {
-            
-           /*var profileid= ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", space.UserId);*/
+
+            var user = await userManager.FindByEmailAsync(space.UserId);
+            if (user != null)
+            {
+                space.ApplicationUser = user;
+                space.UserId = user.Id;
+
+            }
            
-             if (!ModelState.IsValid)
+             if (ModelState.IsValid)
             {
                 _context.Add(space);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", space.UserId);
+            /*ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", space.UserId);*/
             return View(space);
         }
 

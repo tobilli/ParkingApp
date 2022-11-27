@@ -1,46 +1,15 @@
 ﻿@model IEnumerable<ParkingApp.Models.Space>
-@*@inject SignInManager<ApplicationUser> SignInManager*@
+
 @{
     ViewData["Title"] = "Index";
-   // Layout = "_Layout";
+   // Layout = "~/Views/Home/Index.cshtml";
 }
-<div class="grid-container1">
 
-<aside id="sidebar1">
-    <div class="sidebar-title1">
-        <div class="sidebar-brand1">
-                <span class="material-icons-outlined1"> <a class="nav-link text-success fw-bold" asp-area="" asp-controller="Home" asp-action="Index"> Home</a> </span>
-        </div>
-        <span class="material-icons-outlined1" onclick="closeSidebar()">close</span>
-    </div>
+<h1>Index</h1>
 
-    <ul class="sidebar-list1 text-success">
-        <li class="sidebar-list-item1">
-        <span class="material-icons-outlined1"> <a class="nav-link text-success fw-bold" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>
-            </li>
-        <li class="sidebar-list-item1">
-                <span class="material-icons-outlined1"> <a class="nav-link  text-success fw-bold" asp-area="" asp-controller="Spaces" asp-action="Create">Add New Space</a> </span>
-        </li>
-        <li class="sidebar-list-item1">
-           <span class="material-icons-outlined1"> <a class="nav-link text-dark" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>
-        </li>
-        <li class="sidebar-list-item1">
-                <span class="material-icons-outlined1"> <a class="nav-link text-dark" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>
-        </li>
-        <li class="sidebar-list-item1">
-           <span class="material-icons-outlined1"> <a class="nav-link text-dark" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>
-        </li>
-        <li class="sidebar-list-item1">
-           <span class="material-icons-outlined1"> <a class="nav-link text-dark" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>
-        </li>
-        <li class="sidebar-list-item1">
-            <span class="material-icons-outlined1"> <a class="nav-link text-dark" asp-area="" asp-controller="Spaces" asp-action="Index">Space</a> </span>ss
-        </li>
-    </ul>
-</aside>
-
-<main class="main-container1"> 
-
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
 <table class="table">
     <thead>
         <tr>
@@ -63,7 +32,7 @@
                 @Html.DisplayNameFor(model => model.Close_Time)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UserId)
+                @Html.DisplayNameFor(model => model.ApplicationUser)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Daily_Parking)
@@ -102,7 +71,7 @@
                 @Html.DisplayFor(modelItem => item.Close_Time)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UserId)
+                @Html.DisplayFor(modelItem => item.ApplicationUser.Id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Daily_Parking)
@@ -125,6 +94,3 @@
 }
     </tbody>
 </table>
-
-</main>
-</div>
