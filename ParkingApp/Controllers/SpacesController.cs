@@ -25,10 +25,46 @@ namespace ParkingApp.Controllers
         // GET: Spaces
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.spaces.Include(s => s.UserId);
-
+            var user = await userManager.FindByEmailAsync(User?.Identity?.Name);
+            var userId = Convert.ToString(user.Id);
+            var applicationDbContext = _context.spaces.Where(s => s.UserId == userId);
             return View(await applicationDbContext.ToListAsync());
-            /* return View();*/
+        }
+
+        //Get: Locations
+        public async Task<IActionResult> searchSpace(string SearchString)
+        {
+            /*var findOnly = _context.spaces.Where(a => a.Local_Govt.Equals("Area"));
+            return View(findOnly.ToListAsync());*/
+            ViewData["CurrentAera"] =SearchString;
+            var area = from a in _context.spaces
+                       select a;
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                area = area.Where(a => a.Local_Govt.Contains(SearchString));  //does the searching
+            }
+            return View(area); //if found return here
+        }
+
+        [HttpGet]
+        public IActionResult SearchResult(Space ar)
+        {
+            if (ar.Local_Govt == null)
+            {
+                return View();
+            } 
+
+            var spacelot1 = from b in _context.bookings where(ar.Local_Govt == b.Local_Govt)
+                            select b;
+            var spacelot = _context.spaces.Where(r=> !spacelot1.Any( la => la.Local_Govt == r.Local_Govt )).Include(x=> x.Local_Govt).ToList(); 
+            foreach (var item in spacelot)
+            {
+                if (item.Local_Govt == ar.Local_Govt)
+                {
+                    ar..Add(item);
+                }
+            }
+            return View(ar);
         }
 
         // GET: Spaces/Details/5
@@ -79,7 +115,7 @@ namespace ParkingApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            /*ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", space.UserId);*/
+            
             return View(space);
         }
 

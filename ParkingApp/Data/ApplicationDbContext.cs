@@ -11,7 +11,6 @@ namespace ParkingApp.Data
         { }
         public DbSet<ParkingApp.Models.Space> spaces { get; set; }
 
-       /* public DbSet<ParkingApp.Models.Space1> space1s { get; set; }*/
-      /*  public DbSet<ParkingApp.Models.Booking> bookings { get; set; }*/
+        public DbSet<ParkingApp.Models.Bookings> bookings { get; set; }
     }
 }

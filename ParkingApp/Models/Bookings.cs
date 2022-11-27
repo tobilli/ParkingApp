@@ -1,11 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Collections.Generic;
 
 namespace ParkingApp.Models
 {
-    public class Booking
+    public class Bookings
     {
         public int Id { get; set; }
         [Required]
@@ -13,18 +11,19 @@ namespace ParkingApp.Models
         [Required]
         public string Vehicle_Type { get; set; }
         [Required]
+        public string Local_Govt { get; set; }
+        [Required]
         public DateTime Date_Arrival { get; set; }
         [Required]
         public DateTime Date_Depature { get; set; }
-        [Required]
-        public string UserId { get; set; }
-
+        /*public string UserId { get; set; }
         [ForeignKey("UserId")]
-        public virtual ApplicationUser ApplicationUser { get; set; }
+        public virtual ApplicationUser? ApplicationUser { get; set; }*/
+
         [Required]
         public int SpaceId { get; set; }
 
         [ForeignKey("SpaceId")]
-        public  Space Space { get; set; }
+        public virtual Space? Space { get; set; }
     }
 }

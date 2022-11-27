@@ -1,0 +1,38 @@
+﻿@model ParkingApp.Models.Space 
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Park";
+    Layout = "_Layout";
+}
+<div>
+    <form action="SearchResult" method="get">
+
+        <div>
+            <label asp-for="Local_Govt" class=""></label>
+            <input asp-for ="Local_Govt" class="" />
+            <input type="submit" value="Search" class="btn" />
+
+        </div>
+    </form>
+</div>
+
+<div >
+    @if (Model != null)
+    {
+
+
+        foreach (var item in Model.spa)
+        {
+            <table class="table table-bordered">
+                <tr>
+                    <td>
+                        <img src="../wwwroot/Img/emptyspace.jpg" class="" width="100" height="100" />
+                        <br /> <span> @item. </span>
+                    </td>
+                </tr>
+            </table>
+        }
+    }
+</div>
