@@ -18,13 +18,13 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => options.S
     .AddDefaultTokenProviders();
 
 //add policy
-//builder.Services.AddAuthorization(options =>
-//{
-//    options.AddPolicy("readpolicy",
-//        builder => builder.RequireRole("Admin", "Vehicle_Owner", "Space_Owner"));
-//    options.AddPolicy("writepolicy",
-//        builder => builder.RequireRole("Admin"));
-//});
+builder.Services.AddAuthorization(options =>
+{
+  options.AddPolicy("readpolicy",
+       builder => builder.RequireRole("Admin", "Vehicle_Owner", "Space_Owner"));
+    options.AddPolicy("writepolicy",
+        builder => builder.RequireRole("Admin"));
+});
 
 
 builder.Services.AddControllersWithViews();

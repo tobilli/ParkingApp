@@ -12,15 +12,15 @@ namespace ParkingApp.Controllers
         {
             this.roleManager = roleManager;
         }
-        [Authorize(Policy = "readpolicy")]
-        [Authorize(Policy = "writepolicy")]
+        /*[Authorize(Policy = "readpolicy")]
+        [Authorize(Policy = "writepolicy")]*/
         public IActionResult Index()
         {
             var roles = roleManager.Roles.ToList();
             return View(roles);
 
         }
-        [Authorize(Policy = "writepolicy")]
+     /*   [Authorize(Policy = "writepolicy")]*/
         public IActionResult Create()
         {
             return View(new IdentityRole());
