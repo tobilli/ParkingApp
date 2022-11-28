@@ -7,6 +7,10 @@ html {
         font-size: 16px;
     }
 }
+nav {
+    background-color: #46ACC2;
+    color: white;
+}
 
 html {
     /* position: relative;

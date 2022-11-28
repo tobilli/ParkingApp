@@ -20,9 +20,13 @@
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Rent & Earn </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Role" asp-action="Index">Role</a>
+                        <a class="nav-link text-dark disabled" asp-area="" asp-controller="SpacesO" asp-action="Index">Book A Space </a>
                     </li>
-                    
+
+                    @*<li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Role" asp-action="Index">Role</a>
+                    </li>*@
+
                 </ul>
                 <partial name="_LoginPartial" />
             </div>
@@ -46,10 +50,10 @@
                 <a class="earn-space-btn text-center btn" asp-controller="Spaces" asp-action="Create">Add New Space</a>
                 @*<a id="btn_id" asp-action="CreateSpace">  Add your space </a>*@
             </div>
-            <div class="">
-                <a class="earn-space-btn text-center btn" asp-area="" asp-controller="spacetests" asp-action="Details">Details</a>
+            @*<div class="">
+                <a class="earn-space-btn text-center btn" asp-area="" asp-controller="spaces" asp-action="Details">Details</a>
 
-            </div>
+            </div>*@
         </div>
     </div>
 

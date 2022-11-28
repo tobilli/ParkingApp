@@ -18,7 +18,7 @@ namespace ParkingApp.Controllers
             return View();
         }
 
-        public IActionResult Space()
+        public IActionResult Book()
         {
             return View();
         }

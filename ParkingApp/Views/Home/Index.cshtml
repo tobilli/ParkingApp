@@ -19,7 +19,7 @@
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Rent & Earn </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="SpacesO" asp-action="Index">Rent & Earn new </a>
+                        <a class="nav-link text-dark disabled" asp-area="" asp-controller="SpacesO" asp-action="Index">Book A Space </a>
                     </li>
                    
                     @*<li class="nav-item">
@@ -36,7 +36,7 @@
 
 <div class="home-top">
     <div class="home-top-left">
-        <h1> We Make Parking <br><span style="font-size: 1.8em;">Effortless</span> </h1>
+        <h1 class="text-white"> We Make Parking <br><span style="font-size: 1.8em;">Effortless</span> </h1>
     </div>
     <div class="home-top-right">
         <div class="home-top-right-border">
@@ -44,7 +44,7 @@
                 <h1> Drivers</h1>
                 <p>Book a Parking Space at desired location</p>
                 @*<br>*@
-                <button type="button"> <a href="#home-booking">PARK</a> </button>
+                <button type="button" class="disabled"> <a href="#home-booking">PARK</a> </button>
             </div>
 
             <div class="inner_right1">
@@ -52,7 +52,7 @@
                 @*   <br>*@
                 <p>Have a Parking Lot? </p>
                 @*  <br>*@
-                <button type="button"> <a asp-controller="spacetests" asp-action="Index"> EARN </a> </button>
+                <button type="button"> <a asp-controller="Home" asp-action="Privacy"> EARN </a> </button>
             </div>
         </div>
     </div>
@@ -92,7 +92,9 @@
 
                     <div class="home-book-left-hr-b">
 
-                        <label> <h4> Book a space</h4></label>
+                        <label class=""> <h4 class="fw-bold"> Book a space</h4> </label>
+
+
                         @*<select type="Search" id="show_location" value="ViewData[" GetAreaDetails"]" name="Areasearch">
                             <optgroup label="Badagry Division">
                                 <option value="" disabled selected hidden>Select Area</option>
@@ -137,13 +139,29 @@
                     <input type="date" name="datetime" id="park_until" placeholder="Select a date & time" style="width: 100%;">
                     </div>
                     </div>*@
-                    <div class="home-book-button">
-                        <a class="button btn btn-success" id="" value="Search" asp-controller="Bookings" asp-action="search">Search parking spaces</a>
+                    <div>
+
                     </div>
+
+                    
                     @*  <div class="home-book-button">
                     <input class="button btn btn-success" type="button" value="Search" placeholder="Search">
                     </div>*@
                 </form>
+                <br />
+
+                <div class="home-book-button">
+                    <a class="button btn btn-success disabled" id="" value="Search" asp-controller="Bookings" asp-action="search" disabled>Search parking spaces</a>
+                </div>
+
+                <br />
+
+                <div class="text-center text-success py-lg-4" style="font-size:xx-large;">
+
+                    <h1> Our Vehicle Owner Page is Coming Soon </h1>
+                    <p> Sign Up and get an update on launch </p>
+                    <span class=" ">   <a class="nav-link text-dark btn btn-success" asp-area="Identity" asp-page="/Account/Register">Register</a></span>
+                </div>
             </div>
 
 
