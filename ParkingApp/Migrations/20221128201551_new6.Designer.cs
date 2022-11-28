@@ -9,11 +9,11 @@ using ParkingApp.Data;
 
 #nullable disable
 
-namespace ParkingApp.Data.Migrations
+namespace ParkingApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221126224228_booking")]
-    partial class booking
+    [Migration("20221128201551_new6")]
+    partial class new6
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -227,6 +227,42 @@ namespace ParkingApp.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("ParkingApp.Models.Booking", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Area")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date_Arrival")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Date_Depature")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("License_No")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Spaceid")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Vehicle_Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Spaceid");
+
+                    b.ToTable("Booking");
+                });
+
             modelBuilder.Entity("ParkingApp.Models.Space", b =>
                 {
                     b.Property<int>("id")
@@ -333,6 +369,13 @@ namespace ParkingApp.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ParkingApp.Models.Booking", b =>
+                {
+                    b.HasOne("ParkingApp.Models.Space", null)
+                        .WithMany("Booking")
+                        .HasForeignKey("Spaceid");
+                });
+
             modelBuilder.Entity("ParkingApp.Models.Space", b =>
                 {
                     b.HasOne("ParkingApp.Models.ApplicationUser", "ApplicationUser")
@@ -347,6 +390,11 @@ namespace ParkingApp.Data.Migrations
             modelBuilder.Entity("ParkingApp.Models.ApplicationUser", b =>
                 {
                     b.Navigation("Spaces");
+                });
+
+            modelBuilder.Entity("ParkingApp.Models.Space", b =>
+                {
+                    b.Navigation("Booking");
                 });
 #pragma warning restore 612, 618
         }

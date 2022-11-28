@@ -29,9 +29,6 @@ namespace ParkingApp.Models
         [Required]
         public DateTime Close_Time { get; set; }
 
-        /* [ForeignKey("ApplicationUser")]
-         public Guid UserId { get; set; }*/
-
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual ApplicationUser? ApplicationUser { get; set; }
@@ -49,5 +46,7 @@ namespace ParkingApp.Models
         [Required]
         [MaxLength(160)]
         public string? Parking_Desc { get; set; }
+
+       /* public virtual ICollection<Booking> Booking { get; set; }*/
     }
 }

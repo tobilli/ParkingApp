@@ -1,5 +1,125 @@
-﻿@*
+﻿@model IEnumerable<ParkingApp.Models.Space>
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+     ViewData["Title"] = "Search";
+   // Layout = "_Layout";
 }
+
+ 
+<main class="main-container1 ">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Local_Govt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.No_Slot)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Open_Time)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Close_Time)
+                </th>
+               @* <th>
+                    @Html.DisplayNameFor(model => model.UserId)
+                </th>*@
+               @* <th>
+                    @Html.DisplayNameFor(model => model.Daily_Parking)
+                </th>*@
+                @*<th>
+                    @Html.DisplayNameFor(model => model.Weekly_Parking)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Monthly_Parking)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Parking_Desc)
+                </th>*@
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            { 
+                
+                <div class="park_detail">
+                    <div class="park_detail_left">
+                        <img src="/Img/emptyPark.jpg" alt="image of location">
+                    </div>
+                    <div class="park_detail_right" >
+
+                        <h4 class="fw-bold" style="text-decoration:none;">
+                            <a asp-controller="Booking" asp-action="Index">
+                                @Html.DisplayFor(modelItem => item.Address)
+                            </a>
+                        </h4>
+
+                        <h4 style="color: green;">  @Html.DisplayFor(modelItem => item.Status) </h4>
+                     @*   <br>*@
+                        <h4>Parking fee: N @Html.DisplayFor(modelItem => item.Daily_Parking) </h4>
+                        
+                    </div>
+                </div>
+
+
+                <tr>
+                    <td>
+                        
+                        <a asp-controller="Booking" asp-action="Index">
+                        @Html.DisplayFor(modelItem => item.Address)
+                        </a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Local_Govt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.No_Slot)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Open_Time.TimeOfDay)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Close_Time.TimeOfDay)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.UserId)
+                    </td>*@
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.Daily_Parking)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Weekly_Parking)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Monthly_Parking)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Parking_Desc)
+                    </td>*@
+                    <td>
+                       @* <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</main>
+</div>
+

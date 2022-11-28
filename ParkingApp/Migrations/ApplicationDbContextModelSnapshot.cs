@@ -3,19 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ParkingApp.Data;
 
 #nullable disable
 
-namespace ParkingApp.Data.Migrations
+namespace ParkingApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221126003448_Space1")]
-    partial class Space1
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -227,6 +225,37 @@ namespace ParkingApp.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("ParkingApp.Models.Booking", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Area")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date_Arrival")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Date_Depature")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("License_No")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Vehicle_Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Booking");
+                });
+
             modelBuilder.Entity("ParkingApp.Models.Space", b =>
                 {
                     b.Property<int>("id")
@@ -335,13 +364,18 @@ namespace ParkingApp.Data.Migrations
 
             modelBuilder.Entity("ParkingApp.Models.Space", b =>
                 {
-                    b.HasOne("ParkingApp.Models.ApplicationUser", "User")
-                        .WithMany()
+                    b.HasOne("ParkingApp.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("Spaces")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("User");
+                    b.Navigation("ApplicationUser");
+                });
+
+            modelBuilder.Entity("ParkingApp.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("Spaces");
                 });
 #pragma warning restore 612, 618
         }

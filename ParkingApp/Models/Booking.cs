@@ -15,16 +15,10 @@ namespace ParkingApp.Models
         [Required]
         public DateTime Date_Arrival { get; set; }
         [Required]
-        public DateTime Date_Depature { get; set; }
-        [Required]
-        public string UserId { get; set; }
+        public DateTime Date_Depature { get; set; }                
 
-        [ForeignKey("UserId")]
-        public virtual ApplicationUser ApplicationUser { get; set; }
         [Required]
-        public int SpaceId { get; set; }
+        public string Area { get; set; }
 
-        [ForeignKey("SpaceId")]
-        public  Space Space { get; set; }
     }
 }

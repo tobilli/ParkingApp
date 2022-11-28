@@ -19,6 +19,7 @@ namespace ParkingApp.Controllers
             _context = context;
             this.userManager = userManager;
         }
+
         // GET: Spaces
         public async Task<IActionResult> Index()
         {
@@ -28,6 +29,7 @@ namespace ParkingApp.Controllers
             return View(await applicationDbContext.ToListAsync());
             /* return View();*/
         }
+
         // GET: Spaces/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -126,6 +128,32 @@ namespace ParkingApp.Controllers
              var applicationDbContext = _context.spaces.Include(s => s.Local_Govt);
              return View(await applicationDbContext.ToListAsync());
          }*/
+
+        [HttpGet]
+        public IActionResult Second()
+        {
+            /* var user = await userManager.FindByEmailAsync(User?.Identity?.Name);
+             var userId = Convert.ToString(user.Id);
+             var applicationDbContext = _context.spaces.Where(s => s.UserId == userId);
+             return View(await applicationDbContext.ToListAsync());*/
+            /* return View();*/
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Second(Space searchspace)
+        {
+            _context.spaces.Add(searchspace);
+            _context.SaveChanges();
+            return RedirectToAction("Search");
+        }
+
+        public ActionResult Search()
+        {
+            var fetch = _context.spaces.ToList();
+            return View(fetch);
+        }
+
+
         // GET: Spaces/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -133,7 +161,7 @@ namespace ParkingApp.Controllers
             {
                 return NotFound();
             }
-            var space = await _context.spaces
+            Space? space = await _context.spaces
                 .Include(s => s.UserId)
                 .FirstOrDefaultAsync(m => m.id == id);
             if (space == null)
