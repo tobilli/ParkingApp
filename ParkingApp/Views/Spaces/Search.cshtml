@@ -38,13 +38,52 @@
         </div>
     </nav>
 </header>
+<div class="searchbar">
+<form method="get" asp-action="search" placeholder="Select">
+    <p> 
+        <select class="selectarea" value="@ViewData["GetListofArea"]" name="Areasearch">
+            <optgroup label="Badagry Division">
+                <option value="" disabled selected hidden>Select Area</option>
+                <option value="Ajeromi-Ifelodun">Ajeromi-Ifelodun</option>
+                <option value="Amuwo-Odofin">Amuwo-Odofin</option>
+                <option value="Badagry">Badagry</option>
+                <option value="Ojo">Ojo</option>
+            </optgroup>
+            <optgroup label="Epe Division">
+                <option value="Epe">Epe</option>
+                <option value="Ibeju-Lekki">Ibeju-Lekki</option>
+            </optgroup>
+            <optgroup label="Ikeja Division">
+                <option value="Agege">Agege</option>
+                <option value="Alimosho">Alimosho</option>
+                <option value="Ifako-Ijaiye">Ifako-Ijaiye</option>
+                <option value="Ikeja">Ikeja</option>
+                <option value="Kosofe">Kosofe</option>
+                <option value="Mushin">Mushin</option>
+                <option value="Oshodi-Isolo">Oshodi-Isolo</option>
+                <option value="Somolu">Somolu</option>
+            </optgroup>
+            <optgroup label="Ikorodu Division">
+                <option value="Ikorodu">Ikorodu</option>
+            </optgroup>
+            <optgroup label="Lagos Division">
+                <option value="Apapa">Apapa</option>
+                <option value="Eti-Osa">Eti-Osa</option>
+                <option value="Lagos-Island">Lagos Island</option>
+                <option value="Surulere">Surulere</option>
+            </optgroup>
+        </select>
+        <input type="submit" value="Search" class="btn btn-success" />
+    </p>
 
- 
-<main class="park">
+ </form>
+</div>
+
+<main class=" d-flex flex-wrap">
      
             @foreach (var item in Model)
             { 
-                <div class="">
+               
                  <div class="park_detail">
                     <div class="park_detail_left">
                         <img src="/Img/emptyPark.jpg" alt="image of location">
@@ -52,7 +91,7 @@
                     <div class="park_detail_right" >
 
                         <h4 class="fw-bold" style="text-decoration:none;">
-                            <a asp-controller="Booking" asp-action="Index">
+                            <a asp-controller="Bookings" asp-action="Create">
                                 @Html.DisplayFor(modelItem => item.Address)
                             </a>
                         </h4>
@@ -62,7 +101,6 @@
                         <h4>Parking fee: N @Html.DisplayFor(modelItem => item.Daily_Parking) </h4>
                         
                     </div>
-                </div>
                 </div>
                 }  
 </main>

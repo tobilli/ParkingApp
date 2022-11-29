@@ -117,9 +117,11 @@
                 @Html.DisplayFor(modelItem => item.Parking_Desc)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                <a asp-action="Edit" class="button-index btn btn-success " asp-route-id="@item.id">Edit</a> 
+               
+                            @*<a asp-action="Details" class="button-index btn btn-primary" asp-route-id="@item.id">Details</a>*@
+                            
+                            <a asp-action="Delete" class="button-index btn btn-danger" asp-route-id="@item.id">Delete</a>
             </td>
         </tr>
 }

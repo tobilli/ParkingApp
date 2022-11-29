@@ -49,7 +49,7 @@
                 <div class="form-floating">
                     @*<label asp-for="Input.User"></label>*@
                     <select asp-for="Input.Role" class="" asp-items='new SelectList(roles,"Id","Name")'>
-                        <option value="" disabled selected hidden>Select User</option>
+                        <option value="" selected hidden>Select User</option>
                     </select>
                     <span asp-validation-for="Input.Role" class="text-danger"></span>
                 </div>

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -21,6 +23,7 @@ namespace ParkingApp.Controllers
         }
 
         // GET: Spaces
+       
         public async Task<IActionResult> Index()
         {
             var user = await userManager.FindByEmailAsync(User?.Identity?.Name);
@@ -31,6 +34,7 @@ namespace ParkingApp.Controllers
         }
 
         // GET: Spaces/Details/5
+   
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.spaces == null)
@@ -47,6 +51,7 @@ namespace ParkingApp.Controllers
             return View(space);
         }
         // GET: Spaces/Create
+
         public IActionResult Create()
         {
             ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
@@ -75,6 +80,7 @@ namespace ParkingApp.Controllers
             return View(space);
         }
         // GET: Spaces/Edit/5
+       
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.spaces == null)
@@ -129,16 +135,36 @@ namespace ParkingApp.Controllers
              return View(await applicationDbContext.ToListAsync());
          }*/
 
+
         [HttpGet]
-        public IActionResult Second()
+
+       /* [Authorize(Roles = "Vehicle_Owner")]*/
+        public async Task<IActionResult> search( string Areasearch)
         {
-            /* var user = await userManager.FindByEmailAsync(User?.Identity?.Name);
-             var userId = Convert.ToString(user.Id);
-             var applicationDbContext = _context.spaces.Where(s => s.UserId == userId);
-             return View(await applicationDbContext.ToListAsync());*/
-            /* return View();*/
-            return View();
+            ViewData["GetListofArea"] = Areasearch;
+            var Areaquery = from x in _context.spaces select x;
+            if(!string.IsNullOrEmpty(Areasearch)){
+                
+                    Areaquery = Areaquery.Where(x => x.Local_Govt.Contains(Areasearch));
+                }
+                return View(await Areaquery.AsNoTracking().ToListAsync());
         }
+
+       
+
+            
+            
+            
+        
+        //public IActionResult Second()
+        //{
+        //    *//* var user = await userManager.FindByEmailAsync(User?.Identity?.Name);
+        //     var userId = Convert.ToString(user.Id);
+        //     var applicationDbContext = _context.spaces.Where(s => s.UserId == userId);
+        //     return View(await applicationDbContext.ToListAsync());
+        //    /* return View();*/
+        //    return View();
+        //}
         [HttpPost]
         public IActionResult Second(Space searchspace)
         {
@@ -161,8 +187,10 @@ namespace ParkingApp.Controllers
             {
                 return NotFound();
             }
-            Space? space = await _context.spaces
-                .Include(s => s.UserId)
+            /*Space? space = await _context.spaces
+                .Include(s => s.UserId)*/
+               /* .FirstOrDefaultAsync(m => m.id == id);*/
+            var space = await _context.spaces
                 .FirstOrDefaultAsync(m => m.id == id);
             if (space == null)
             {

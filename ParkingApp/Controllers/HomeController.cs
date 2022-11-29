@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ParkingApp.Models;
+using System.Data;
 using System.Diagnostics;
 
 namespace ParkingApp.Controllers
@@ -12,7 +14,7 @@ namespace ParkingApp.Controllers
         {
             _logger = logger;
         }
-
+       
         public IActionResult Index()
         {
             return View();
@@ -22,7 +24,7 @@ namespace ParkingApp.Controllers
         {
             return View();
         }
-
+        
         public IActionResult Privacy()
         {
             return View();
