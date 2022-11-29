@@ -7,53 +7,45 @@
    // Layout = "_Layout";
 }
 
- 
-<main class="main-container1 ">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Address)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Local_Govt)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Status)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.No_Slot)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Open_Time)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Close_Time)
-                </th>
-               @* <th>
-                    @Html.DisplayNameFor(model => model.UserId)
-                </th>*@
-               @* <th>
-                    @Html.DisplayNameFor(model => model.Daily_Parking)
-                </th>*@
-                @*<th>
-                    @Html.DisplayNameFor(model => model.Weekly_Parking)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Monthly_Parking)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Parking_Desc)
-                </th>*@
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ParkingApp</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Rent & Earn </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark disabled" asp-area="" asp-controller="SpacesO" asp-action="Index">Book A Space </a>
+                    </li>
+                   
+                   @* <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Role" asp-action="Index">Role</a>
+                    </li>*@
+                    
+                </ul>
+                <partial name="_LoginPartial" />
+            </div>
+        </div>
+    </nav>
+</header>
+
+ 
+<main class="park">
+     
             @foreach (var item in Model)
             { 
-                
-                <div class="park_detail">
+                <div class="">
+                 <div class="park_detail">
                     <div class="park_detail_left">
                         <img src="/Img/emptyPark.jpg" alt="image of location">
                     </div>
@@ -71,55 +63,7 @@
                         
                     </div>
                 </div>
-
-
-                <tr>
-                    <td>
-                        
-                        <a asp-controller="Booking" asp-action="Index">
-                        @Html.DisplayFor(modelItem => item.Address)
-                        </a>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Local_Govt)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Status)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.No_Slot)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Open_Time.TimeOfDay)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Close_Time.TimeOfDay)
-                    </td>
-                    @*<td>
-                        @Html.DisplayFor(modelItem => item.UserId)
-                    </td>*@
-                    @*<td>
-                        @Html.DisplayFor(modelItem => item.Daily_Parking)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Weekly_Parking)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Monthly_Parking)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Parking_Desc)
-                    </td>*@
-                    <td>
-                       @* <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>*@
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-
+                </div>
+                }  
 </main>
-</div>
 

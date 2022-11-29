@@ -61,111 +61,24 @@
 <div class="home-book" id="home-booking">
 
     <div class="home-book-left">
-        <div class="home-book-left-i">
-            <form method="get" asp-controller="spacetests" asp-action="Searchfor">
-                <p>
-                    @*<input type="search" placeholder="Enter Area Name" value="@ViewData[" GetAreaDetails"]" name="Areasearch" />*@
-
-                    @*<input type="search" placeholder="Enter Area Name" value="@ViewData[" GetAreaDetails"]" name="Areasearch" />
-                    <input type="submit" value="Search" class="btn btn-success" />*@
-
-                </p>
-            </form>
-            @*<form method="get" asp-action="Searchfor" class="daily">
-            <label class="home-book-left-hr">  <h3>HOURLY / DAILY </h3> </label>
-            <br />
-
-            </form>*@
-
+        
+            <div class="left_booking" id="">
+        <div class="rentEarn-top-left-border">
+            <h3 class="text-center fw-bold">Book A Space At Your Desired Location</h3>
+            <br>
+            <h5 class="text-center">Reserve a  <span style="color:red;">Space </span> Today</h5>
+            <br>
+            <h4 class="text-center"> </h4>
             <div>
-                <span id="hr_daily" onclick="changedaily()">
-
-                </span>
-                @*<p style="padding-inline: 7%;"></p>
-                <span id="s_monthly" onclick="changemonthly()">
-                <h3>MONTHLY</h3>
-                </span>*@
-            </div>
-            <div id="daily" class="daily">
-                <form method="get" asp-action="Searchfor" id="daily" class="daily">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                    <div class="home-book-left-hr-b">
-
-                        <label class=""> <h4 class="fw-bold"> Book a space</h4> </label>
-
-
-                        @*<select type="Search" id="show_location" value="ViewData[" GetAreaDetails"]" name="Areasearch">
-                            <optgroup label="Badagry Division">
-                                <option value="" disabled selected hidden>Select Area</option>
-                                <option value="Ajeromi-Ifelodun">Ajeromi-Ifelodun</option>
-                                <option value="Amuwo-Odofin">Amuwo-Odofin</option>
-                                <option value="Badagry">Badagry</option>
-                                <option value="Ojo">Ojo</option>
-                            </optgroup>
-                            <optgroup label="Epe Division">
-                                <option value="Epe">Epe</option>
-                                <option value="Ibeju-Lekki">Ibeju-Lekki</option>
-                            </optgroup>
-                            <optgroup label="Ikeja Division">
-                                <option value="Agege">Agege</option>
-                                <option value="Alimosho">Alimosho</option>
-                                <option value="Ifako-Ijaiye">Ifako-Ijaiye</option>
-                                <option value="Ikeja">Ikeja</option>
-                                <option value="Kosofe">Kosofe</option>
-                                <option value="Mushin">Mushin</option>
-                                <option value="Oshodi-Isolo">Oshodi-Isolo</option>
-                                <option value="Somolu">Somolu</option>
-                            </optgroup>
-                            <optgroup label="Ikorodu Division">
-                                <option value="Ikorodu">Ikorodu</option>
-                            </optgroup>
-                            <optgroup label="Lagos Division">
-                                <option value="Apapa">Apapa</option>
-                                <option value="Eti-Osa">Eti-Osa</option>
-                                <option value="Lagos-Island">Lagos Island</option>
-                                <option value="Surulere">Surulere</option>
-                            </optgroup>
-                        </select>*@
-                    </div>
-                    @*  <div class="home-book-left-hr-b2">
-                    <div>
-                    <h4>Parking from</h4>
-                    <input type="date" name="date" placeholder="Select a date & time" id="park_from" style="width: 100%;">
-                    </div>
-                    <hr>
-                    <div>
-                    <h4>Parking until</h4>
-                    <input type="date" name="datetime" id="park_until" placeholder="Select a date & time" style="width: 100%;">
-                    </div>
-                    </div>*@
-                    <div>
-
-                    </div>
-
-                    
-                    @*  <div class="home-book-button">
-                    <input class="button btn btn-success" type="button" value="Search" placeholder="Search">
-                    </div>*@
-                </form>
-                <br />
-
-                <div class="home-book-button">
-                    <a class="button btn btn-success disabled" id="" value="Search" asp-controller="Bookings" asp-action="search" disabled>Search parking spaces</a>
-                </div>
-
-                <br />
-
-                <div class="text-center text-success py-lg-4" style="font-size:xx-large;">
-
-                    <h1> Our Vehicle Owner Page is Coming Soon </h1>
-                    <p> Sign Up and get an update on launch </p>
-                    <span class=" ">   <a class="nav-link text-dark btn btn-success" asp-area="Identity" asp-page="/Account/Register">Register</a></span>
-                </div>
             </div>
 
+            <div class="greenbtn">
+                    <a class="booking-btn btn " id="" value="Search" asp-controller="Spaces" asp-action="search"><h4 class="text-white fw-bold">Search parking spaces </h4> </a>
+            </div>
+            
+        </div>
 
-
+                 
         </div>
 
     </div>
