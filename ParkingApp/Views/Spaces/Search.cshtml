@@ -91,7 +91,7 @@
                     <div class="park_detail_right" >
 
                         <h4 class="fw-bold" style="text-decoration:none;">
-                            <a asp-controller="Bookings" asp-action="Create">
+                            <a asp-controller="Bookings" asp-action="Create" asp-route-spaceId="@item.id">
                                 @Html.DisplayFor(modelItem => item.Address)
                             </a>
                         </h4>

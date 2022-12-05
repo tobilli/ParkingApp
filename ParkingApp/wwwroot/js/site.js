@@ -67,7 +67,24 @@ function showSlides(n) {
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
 }
-//end 
+//end
+
+function totalPay() {
+    var Date_Arrival = document.getElementById("Date_Arrival").value;
+    var Date_Depature = document.getElementById("Date_Depature").value;
+    var Daily_Rate = document.getElementById("Daily_Rate").value;
+
+    const dateOne = new Date(Date_Arrival);
+    const dateTwo = new Date(Date_Depature);
+    const time = Math.abs(dateTwo - dateOne);
+    const days = Math.ceil(time / (1000 * 60 * 60 * 24));
+    const payment = Math.ceil(days * Daily_Rate);
+    console.log(days);
+    console.log(payment);
+    
+    document.getElementById("output").innerHTML = days;
+}
+
 
 //switch between daily and monthly booking driver
 let monthly = document.getElementById("monthly");
@@ -85,3 +102,4 @@ function changemonthly() {
     daily.style.display = "none";
     monthly.style.display = "block";
 }
+

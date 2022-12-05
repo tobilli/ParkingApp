@@ -1,53 +1,112 @@
-﻿@model ParkingApp.Models.Booking
+﻿@model ParkingApp.Models.SpaceAndBooking
+
 
 @{
     ViewData["Title"] = "Create";
-    var Spaces = (List<Space>)ViewData["spaces"];
 }
 
-<h1>Create</h1>
 
-<h4>Booking</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="License_No" class="control-label"></label>
-                <input asp-for="License_No" class="form-control" />
-                <span asp-validation-for="License_No" class="text-danger"></span>
+
+
+<main class="rent_main">
+
+    
+
+
+    <div class="rentEarn-reg1">
+        <div class="rentEarn-reg1-banner">
+            <div class="rentEarn-reg1-banner-1">
+                <h2>Book a Space</h2>
             </div>
-            <div class="form-group">
-                <label asp-for="Vehicle_Type" class="control-label"></label>
-                <input asp-for="Vehicle_Type" class="form-control" />
-                <span asp-validation-for="Vehicle_Type" class="text-danger"></span>
+            <div class="rentEarn-reg1-banner-2">
             </div>
-            <div class="form-group">
-                <label asp-for="Date_Arrival" class="control-label"></label>
-                <input asp-for="Date_Arrival" class="form-control" />
-                <span asp-validation-for="Date_Arrival" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Date_Depature" class="control-label"></label>
-                <input asp-for="Date_Depature" class="form-control" />
-                <span asp-validation-for="Date_Depature" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Area" class="control-label"> Area</label>
-               <select asp-for="Area" class="form-control" asp-items='new SelectList(Spaces, "Area","Address")'></select>
-                <span asp-validation-for="Area" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+
+        </div>
+
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div class="rentEarn-top-right">
+    </div>
+
+    @*place booking stuff here*@
+
+    <div class="reg1_body">
+
+
+        <div class="reg1_body_main">
+
+            <div class="">
+
+                <div class="text-center">
+                    <h5>Address: @Model.Address</h5>
+                    <h5>Location Status:  @Model.Status</h5>
+                    <h5>Opening Time:  @Model.Open_Time.TimeOfDay AM</h5>
+                    <h5>Closing Time:  @Model.Close_Time.TimeOfDay  PM</h5>
+                    <h5>Daily Rate: N  @Model.Daily_Parking</h5>
+                    <h5>Weekly Rate: N @Model.Weekly_Parking</h5>
+                    <h5>Monthly Rate: N @Model.Monthly_Parking</h5>
+                    <h5> Parking Description:  @Model.ParkingDesc</h5>
+                </div>
+                
+                    
+                
+
+                <form asp-action="Create" >
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="License_No" class="control-label fw-bold"></label>
+                        <input asp-for="License_No" class="form-control" />
+                        <span asp-validation-for="License_No" class="text-danger"></span>
+                    </div>
+
+                    <div class="reg_select">
+
+                        <label asp-for="Vehicle_Type" class="control-label fw-bold"> Select Vehicle Type</label>
+                        <select asp-for="Vehicle_Type" class="">
+                            <option value="" disabled selected hidden>Vehicle Type</option>
+                            <option value="Saloon"> Saloon</option>
+                            <option value="SUV">SUV</option>
+                        </select>
+                        <span asp-validation-for="Vehicle_Type" class="text-danger"></span>
+                    </div>
+
+                    <div class="rentEarn_reg1_time pt-4">
+                        <div class=" rentEarn_reg1_time1 text-center">
+                            <label asp-for="Date_Arrival" class="control-label fw-bold"> Arrival Date</label>
+                            <input asp-for="Date_Arrival" id="Date_Arrival" value="06/12/2022" id="" type="date" class="timepm" />
+                            <span asp-validation-for="Date_Arrival" class="text-danger"></span>
+                        </div>
+                        <div class=" rentEarn_reg1_time1 text-center">
+                            <label asp-for="Date_Depature" class="control-label fw-bold">Depature Date</label>
+                            <input asp-for="Date_Depature" id="Date_Depature" value="06/12/2022" type="date" class="timepm" />
+                            <span asp-validation-for="Date_Depature" class="text-danger"></span>
+                        </div>
+                    </div>
+                    @*<button onclick="totalPay()"> Total Amount</button>
+                     <div class="rentEarn_Slot text-center pt-4">
+                    <label class="control-label fw-bold"> Total Amount : </label>
+                    <h5 id="output"> </h5>
+                    
+                    </div>*@
+
+                    <hr class="mt-5" style="margin:auto; border-color:black;" width="80%">
+                    <div class="reg1_bottom">
+                        <div class="reg-back">
+                            <a asp-controller="Spaces" asp-action="search" class="reg-back1 fw-bold">Back to List</a>
+
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn reg1_btn" />
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</main>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

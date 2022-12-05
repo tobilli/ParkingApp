@@ -44,10 +44,26 @@ namespace ParkingApp.Controllers
         }
 
         // GET: Bookings/Create
-        public IActionResult Create()
+        public IActionResult Create(string spaceId)
         {
             ViewData["spaces"] = _context.spaces.ToList();
-            return View();
+
+            var areaInfo = _context.spaces.FirstOrDefault(s => s.id == Convert.ToInt32(spaceId));
+
+            if (areaInfo == null) return NotFound();
+
+            var spaceAndBooking = new SpaceAndBooking();
+
+            spaceAndBooking.ParkingDesc = areaInfo.Parking_Desc!;
+            spaceAndBooking.Status = areaInfo.Status;
+            spaceAndBooking.Address = areaInfo.Address;
+            spaceAndBooking.Open_Time = areaInfo.Open_Time;
+            spaceAndBooking.Close_Time = areaInfo.Close_Time;
+            spaceAndBooking.Daily_Parking = areaInfo.Daily_Parking;
+            spaceAndBooking.Weekly_Parking = areaInfo.Weekly_Parking;
+            spaceAndBooking.Monthly_Parking = areaInfo.Monthly_Parking;
+
+            return View(spaceAndBooking);
         }
        /* public async Task OnGetAsync(string returnUrl = null)
         {

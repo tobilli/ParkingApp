@@ -23,7 +23,7 @@ namespace ParkingApp.Controllers
         }
 
         // GET: Spaces
-       
+        /*[Authorize(Roles = "Space_Owner")]*/
         public async Task<IActionResult> Index()
         {
             var user = await userManager.FindByEmailAsync(User?.Identity?.Name);
@@ -51,7 +51,7 @@ namespace ParkingApp.Controllers
             return View(space);
         }
         // GET: Spaces/Create
-
+      /*  [Authorize(Roles = "Space_Owner")]*/
         public IActionResult Create()
         {
             ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
@@ -80,6 +80,8 @@ namespace ParkingApp.Controllers
             return View(space);
         }
         // GET: Spaces/Edit/5
+
+       /* [Authorize(Roles = "Space_Owner")]*/
        
         public async Task<IActionResult> Edit(int? id)
         {
@@ -129,24 +131,19 @@ namespace ParkingApp.Controllers
             ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", space.UserId);
             return View(space);
         }
-        /* public async Task<IActionResult> SearchFor ()
-         {
-             var applicationDbContext = _context.spaces.Include(s => s.Local_Govt);
-             return View(await applicationDbContext.ToListAsync());
-         }*/
 
 
         [HttpGet]
 
-       /* [Authorize(Roles = "Vehicle_Owner")]*/
-        public async Task<IActionResult> search( string Areasearch)
+        /* [Authorize(Roles = "Vehicle_Owner")]*/
+       public async Task<IActionResult> search( string Areasearch)
         {
             ViewData["GetListofArea"] = Areasearch;
             var Areaquery = from x in _context.spaces select x;
             if(!string.IsNullOrEmpty(Areasearch)){
                 
                     Areaquery = Areaquery.Where(x => x.Local_Govt.Contains(Areasearch));
-                }
+            }
                 return View(await Areaquery.AsNoTracking().ToListAsync());
         }
 
@@ -187,9 +184,7 @@ namespace ParkingApp.Controllers
             {
                 return NotFound();
             }
-            /*Space? space = await _context.spaces
-                .Include(s => s.UserId)*/
-               /* .FirstOrDefaultAsync(m => m.id == id);*/
+           
             var space = await _context.spaces
                 .FirstOrDefaultAsync(m => m.id == id);
             if (space == null)

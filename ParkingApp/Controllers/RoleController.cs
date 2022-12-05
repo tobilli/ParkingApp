@@ -12,8 +12,6 @@ namespace ParkingApp.Controllers
         {
             this.roleManager = roleManager;
         }
-        
-       
         public IActionResult Index()
         {
             var roles = roleManager.Roles.ToList();
