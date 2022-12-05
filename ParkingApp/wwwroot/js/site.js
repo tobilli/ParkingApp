@@ -74,7 +74,9 @@ function totalPay() {
     var Date_Depature = document.getElementById("Date_Depature").value;
     var Daily_Rate = document.getElementById("Daily_Rate").value;
 
-    const dateOne = new Date(Date_Arrival);
+    document.getElementById("output").innerHTML = Date_Depature - Date_Arrival;
+
+   /* const dateOne = new Date(Date_Arrival);
     const dateTwo = new Date(Date_Depature);
     const time = Math.abs(dateTwo - dateOne);
     const days = Math.ceil(time / (1000 * 60 * 60 * 24));
@@ -82,7 +84,7 @@ function totalPay() {
     console.log(days);
     console.log(payment);
     
-    document.getElementById("output").innerHTML = days;
+    document.getElementById("output").innerHTML = days;*/
 }
 
 
@@ -103,3 +105,16 @@ function changemonthly() {
     monthly.style.display = "block";
 }
 
+//payment
+function OpenPopup(id) {
+    let popup = document.getElementById(id);
+    popup.classList.add("open-popup");
+}
+function ClosePopup(id) {
+    let popup = document.getElementById(id);
+    popup.classList.remove("open-popup");
+}
+function getFormData(selector) {
+    var data = Object.fromEntries(new FormData(document.querySelector(selector)));
+    console.log(data);
+}

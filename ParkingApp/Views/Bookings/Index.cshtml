@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ParkingApp.Models.Booking>
+﻿@model IEnumerable<ParkingApp.Models.SpaceAndBooking>
 
 @{
     ViewData["Title"] = "Index";
@@ -25,7 +25,7 @@
                 @Html.DisplayNameFor(model => model.Date_Depature)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Area)
+                @Html.DisplayNameFor(model => model.Total_Amount)
             </th>
             <th></th>
         </tr>
@@ -46,12 +46,12 @@
                 @Html.DisplayFor(modelItem => item.Date_Depature)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Area)
+                @Html.DisplayFor(modelItem => item.Total_Amount)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+               @* <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
             </td>
         </tr>
 }

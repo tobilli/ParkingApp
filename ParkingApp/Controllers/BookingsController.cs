@@ -60,8 +60,9 @@ namespace ParkingApp.Controllers
             spaceAndBooking.Open_Time = areaInfo.Open_Time;
             spaceAndBooking.Close_Time = areaInfo.Close_Time;
             spaceAndBooking.Daily_Parking = areaInfo.Daily_Parking;
-            spaceAndBooking.Weekly_Parking = areaInfo.Weekly_Parking;
-            spaceAndBooking.Monthly_Parking = areaInfo.Monthly_Parking;
+            /*spaceAndBooking.Weekly_Parking = areaInfo.Weekly_Parking;
+            spaceAndBooking.Monthly_Parking = areaInfo.Monthly_Parking;*/
+           
 
             return View(spaceAndBooking);
         }
@@ -74,15 +75,15 @@ namespace ParkingApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,License_No,Vehicle_Type,Date_Arrival,Date_Depature,Area")] Booking booking)
+        public async Task<IActionResult> Create([Bind("Id,License_No,Vehicle_Type,Date_Arrival,Date_Depature,Total_Amount,Address,Status,Open_Time,Closing_Time,Daily_Rate")] SpaceAndBooking spaceAndBooking)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(booking);
+                _context.Add(spaceAndBooking);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(booking);
+            return View(spaceAndBooking);
         }
 
         // GET: Bookings/Edit/5

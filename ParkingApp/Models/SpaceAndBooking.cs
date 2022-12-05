@@ -8,6 +8,7 @@ namespace ParkingApp.Models
 {
     public class SpaceAndBooking
     {
+        public int Id { get; set; } 
         // this is for space stuff you want to show on the frontend
         [Required]
         [MaxLength(50)]
@@ -38,6 +39,8 @@ namespace ParkingApp.Models
         [Required]
         public DateTime Date_Arrival { get; set; } 
         [Required]
-        public DateTime Date_Depature { get; set; } 
+        public DateTime Date_Depature { get; set; }
+
+        public decimal Total_Amount { get; set; }
     }
 }

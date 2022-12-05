@@ -42,7 +42,7 @@
                     <h5>Location Status:  @Model.Status</h5>
                     <h5>Opening Time:  @Model.Open_Time.TimeOfDay AM</h5>
                     <h5>Closing Time:  @Model.Close_Time.TimeOfDay  PM</h5>
-                    <h5>Daily Rate: N  @Model.Daily_Parking</h5>
+                    <h5 id="Daily_Rate">Daily Rate: N  @Model.Daily_Parking</h5>
                     <h5>Weekly Rate: N @Model.Weekly_Parking</h5>
                     <h5>Monthly Rate: N @Model.Monthly_Parking</h5>
                     <h5> Parking Description:  @Model.ParkingDesc</h5>
@@ -51,7 +51,7 @@
                     
                 
 
-                <form asp-action="Create" >
+                <form asp-action="Create">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
                         <label asp-for="License_No" class="control-label fw-bold"></label>
@@ -82,8 +82,18 @@
                             <span asp-validation-for="Date_Depature" class="text-danger"></span>
                         </div>
                     </div>
-                    @*<button onclick="totalPay()"> Total Amount</button>
-                     <div class="rentEarn_Slot text-center pt-4">
+
+                    <div class="form-group">
+                        <label asp-for="Total_Amount" class="control-label fw-bold"> Total Amount</label>
+                        <input asp-for="Total_Amount" id="output" class="form-control" />
+                        
+                    </div>
+
+                   @* <button onclick="totalPay()"> Total Amount</button>*@
+
+                   
+
+                    @* <div class="rentEarn_Slot text-center pt-4">
                     <label class="control-label fw-bold"> Total Amount : </label>
                     <h5 id="output"> </h5>
                     
@@ -96,11 +106,56 @@
 
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="Create" class="btn reg1_btn" />
+                            <button class="btn reg1_btn" type="submit" onclick="OpenPopup('popup24')">Pay Now </button>
                         </div>
-                    </div>
-
+                    </div>      
                 </form>
+
+                 @*popup*@
+                <div class="checkout-popup align-items-center" id="popup24">
+                    <div>
+                        <div class="text-center">
+                            <h3>Payment Section</h3>
+                        </div>
+                        <form>
+                            <div class='row row-cols-2 align-items-center'>
+                                <div class='col'>
+                                    <label>Debit Card Number</label>
+                                    <input class="checkout-input" type="text" />
+                                </div>
+                                <div class="col">
+                                    <label>Expiration Date</label>
+                                    <input class="checkout-input" type="text" />
+                                </div>
+                                <div class="col mt-2">
+                                    <label>CVV</label>
+                                    <input class="checkout-input" type="text" />
+                                </div>
+                                <div class="col mt-2">
+                                    <label>Card Pin</label>
+                                    <input class="checkout-input" type="text" />
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button class="loginbutton mt-3 me-3" onclick="ClosePopup('popup24')">
+                                    Back
+                                </button>
+                                <button class="loginbutton mt-3" type="submit" onclick="ClosePopup('popup24')">
+                                    Make Payment
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    @*<section>
+                    <input asp-for="Number" class="login" id="cardnumber" type="tel" placeholder="Card Number" required />
+                    <label asp-for="Input.Email" class="form-label"></label>
+                    <span asp-validation-for="Input.Number" class="text-danger"></span>
+                    </section>*@
+                </div>
+                
+
+
+
             </div>
         </div>
     </div>
